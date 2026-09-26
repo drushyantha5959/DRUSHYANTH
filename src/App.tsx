@@ -102,8 +102,9 @@ function App() {
         </motion.div>
 
         <motion.div className="hero-orb" style={{ y: heroY }}>
-          <div className="orb-grid" />
-          <div className="orb-core">DS</div>
+          <div className="avatar-halo" />
+          <img className="hero-avatar" src="/avatar.jpg" alt="Drushyanth 3D avatar" />
+          <div className="avatar-caption">DRUSHYA / 3D AVATAR</div>
           <span className="orb-label">CREATE / ಸೃಷ್ಟಿ</span>
         </motion.div>
 
@@ -139,6 +140,10 @@ function App() {
       <section className="about section-shell" id="about">
         <div className="section-label"><span>ABOUT</span><span>04 / 05</span></div>
         <div className="about-layout">
+          <div className="about-portrait">
+            <img src="/avatar.jpg" alt="Drushyanth 3D avatar portrait" />
+            <span>DRUSHYA / PORTRAIT STUDY</span>
+          </div>
           <div>
             <p className="eyebrow">THE PERSON BEHIND THE PROJECTS</p>
             <h2>NOT JUST A<br /><span>CREATOR.</span></h2>
