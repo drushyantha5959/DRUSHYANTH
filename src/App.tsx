@@ -1,225 +1,183 @@
-import { useEffect, useState } from 'react'
-import { ArrowDownRight, ArrowUpRight, ExternalLink, Instagram, Linkedin, Menu, X } from 'lucide-react'
-import { motion, useScroll, useSpring, useTransform } from 'framer-motion'
+import { useState } from 'react'
+import { ArrowUpRight, Menu, X } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 const projects = [
   {
-    index: '01',
+    number: '01',
     name: 'Namma Icons',
-    type: 'Brand · E-commerce · Design · Development',
-    description: 'A Kannada culture-first wall collection built from identity, curation and a wall-first shopping experience.',
-    tag: 'NAMMA / ನಮ್ಮ',
-    tone: 'warm',
+    category: 'Brand / E-commerce / Development',
+    description: 'A Kannada culture-first wall collection shaped from identity, curation and a focused shopping experience.',
+    accent: 'ನಮ್ಮ',
   },
   {
-    index: '02',
+    number: '02',
     name: 'RX KARUNADU',
-    type: 'Community · Branding · Content',
-    description: 'A visual community around Yamaha RX culture, rides, stories and a distinctly Kannada point of view.',
-    tag: 'RIDE / ರೈಡ್',
-    tone: 'cyan',
+    category: 'Community / Branding / Content',
+    description: 'A visual community for Yamaha RX culture, rides and stories with a distinctly Kannada point of view.',
+    accent: 'RIDE',
   },
   {
-    index: '03',
+    number: '03',
     name: '3BBQ',
-    type: 'Brand · Content · Digital Marketing',
-    description: 'A food brand growth system connecting short-form content, local creators, offers and conversion.',
-    tag: 'TASTE / ರುಚಿ',
-    tone: 'red',
+    category: 'Brand / Content / Marketing',
+    description: 'A local food brand growth system connecting short-form content, creators, offers and conversion.',
+    accent: 'BBQ',
   },
   {
-    index: '04',
+    number: '04',
     name: 'Influencers Growth Doctor',
-    type: 'Creator Growth · Strategy · Marketing',
-    description: 'A growth-focused brand helping creators turn attention into a repeatable digital presence.',
-    tag: 'GROW / ಬೆಳವಣಿಗೆ',
-    tone: 'violet',
+    category: 'Creator Growth / Strategy',
+    description: 'A growth-focused brand built to help creators turn attention into a consistent digital presence.',
+    accent: 'IGD',
   },
 ]
 
 const capabilities = [
-  'Brand Strategy',
   'Creative Direction',
+  'Branding',
+  'Content',
   'Social Media',
-  'Content Systems',
-  'Video & Editing',
   'Web Development',
-  'E-commerce',
   'Creator Growth',
+  'E-commerce',
   'SEO',
 ]
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const { scrollYProgress } = useScroll()
-  const progress = useSpring(scrollYProgress, { stiffness: 100, damping: 30 })
-  const heroY = useTransform(progress, [0, 0.35], [0, -110])
 
-  useEffect(() => {
-    const onKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setMenuOpen(false)
-    }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [])
-
-  const closeMenu = () => setMenuOpen(false)
+  const close = () => setMenuOpen(false)
 
   return (
     <main>
-      <motion.div className="scroll-progress" style={{ scaleX: progress }} />
-
-      <header className="site-header">
-        <a className="brand" href="#top" onClick={closeMenu}>DRUSHYA<span>®</span></a>
-        <nav className={menuOpen ? 'nav nav-open' : 'nav'}>
-          {['work', 'about', 'capabilities', 'contact'].map((item) => (
-            <a key={item} href={`#${item}`} onClick={closeMenu}>{item}</a>
-          ))}
+      <header className="header">
+        <a className="logo" href="#top" onClick={close}>DRUSHYANTH<span>®</span></a>
+        <nav className={menuOpen ? 'nav open' : 'nav'}>
+          <a href="#work" onClick={close}>Work</a>
+          <a href="#about" onClick={close}>About</a>
+          <a href="#capabilities" onClick={close}>Capabilities</a>
+          <a href="#contact" onClick={close}>Contact</a>
         </nav>
-        <button className="menu-button" aria-label="Toggle navigation" onClick={() => setMenuOpen(!menuOpen)}>
-          {menuOpen ? <X size={21} /> : <Menu size={21} />}
+        <button className="menu" onClick={() => setMenuOpen(!menuOpen)} aria-label="Open menu">
+          {menuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </header>
 
-      <section className="hero section-shell" id="top">
-        <div className="hero-meta">
-          <span>01 / 05</span>
-          <span>INDIA · 2026</span>
-        </div>
-        <motion.div className="hero-copy" style={{ y: heroY }}>
-          <p className="eyebrow">DIGITAL CREATOR · DEVELOPER · BRAND BUILDER</p>
-          <h1>
-            I BUILD
-            <br />
-            <span>DIGITAL</span>
-            <br />
-            <em>WORLDS.</em>
-          </h1>
-          <div className="hero-bottom">
-            <p>I turn ideas into brands, experiences and stories.</p>
-            <a className="circle-link" href="#work" aria-label="Explore work"><ArrowDownRight size={25} /></a>
+      <section className="hero wrap" id="top">
+        <div className="hero-index">01 — INTRO</div>
+        <div className="hero-grid">
+          <div className="hero-copy">
+            <p className="kicker">DIGITAL CREATOR · DEVELOPER · BRAND BUILDER</p>
+            <h1>Ideas<br /><span>into</span><br />impact.</h1>
+            <p className="hero-lead">I build brands, digital experiences and stories that feel clear, human and memorable.</p>
+            <a className="text-link" href="#work">Explore selected work <ArrowUpRight size={17} /></a>
           </div>
-        </motion.div>
 
-        <motion.div className="hero-orb" style={{ y: heroY }}>
-          <div className="avatar-halo" />
-          <img className="hero-avatar" src="/avatar.jpg" alt="Drushyanth 3D avatar" />
-          <div className="avatar-caption">DRUSHYA / 3D AVATAR</div>
-          <span className="orb-label">CREATE / ಸೃಷ್ಟಿ</span>
-        </motion.div>
-
-        <div className="hero-kan">
-          <span>ಸೃಷ್ಟಿ</span>
-          <span>BUILD</span>
+          <div className="portrait">
+            <div className="portrait-frame">
+              <img src="/avatar.jpg" alt="Drushyanth 3D avatar" />
+            </div>
+            <div className="portrait-meta">
+              <span>DRUSHYA / 3D STUDY</span>
+              <span>ಸೃಷ್ಟಿ</span>
+            </div>
+          </div>
+        </div>
+        <div className="hero-foot">
+          <span>BASED IN KARNATAKA, INDIA</span>
+          <span>SCROLL TO EXPLORE ↓</span>
         </div>
       </section>
 
-      <section className="numbers section-shell">
-        <div className="section-label"><span>IMPACT</span><span>02 / 05</span></div>
-        <div className="number-grid">
-          <Stat value="9M+" label="VIDEO VIEWS" />
-          <Stat value="1M+" label="LIKES" />
-          <Stat value="20K+" label="FOLLOWERS" />
-          <Stat value="10+" label="COLLABORATIONS" />
+      <section className="statement wrap">
+        <div className="section-head"><span>02</span><span>WHAT I DO</span></div>
+        <div className="statement-grid">
+          <h2>I make ideas<br /><i>feel real.</i></h2>
+          <p>From the first thought to the final screen, I work across creative direction, branding, content, development and growth — bringing the pieces into one coherent experience.</p>
         </div>
       </section>
 
-      <section className="work section-shell" id="work">
-        <div className="section-label"><span>SELECTED WORK</span><span>03 / 05</span></div>
+      <section className="numbers wrap">
+        <div className="metric"><strong>9M+</strong><span>VIDEO VIEWS</span></div>
+        <div className="metric"><strong>1M+</strong><span>LIKES</span></div>
+        <div className="metric"><strong>20K+</strong><span>FOLLOWERS</span></div>
+        <div className="metric"><strong>10+</strong><span>COLLABORATIONS</span></div>
+      </section>
+
+      <section className="work wrap" id="work">
+        <div className="section-head"><span>03</span><span>SELECTED WORK</span></div>
         <div className="work-intro">
-          <h2>IDEAS,<br /><span>MADE VISIBLE.</span></h2>
-          <p>Brands, communities and digital experiences built at the intersection of culture, creativity and technology.</p>
+          <h2>Built with<br /><i>purpose.</i></h2>
+          <p>A selection of brands, communities and digital projects across culture, food, creators and technology.</p>
         </div>
-        <div className="project-list">
+        <div className="projects">
           {projects.map((project) => (
-            <ProjectCard key={project.name} project={project} />
+            <motion.article
+              className="project"
+              key={project.name}
+              whileHover={{ y: -5 }}
+              transition={{ duration: 0.25 }}
+            >
+              <div className="project-top">
+                <span>{project.number}</span>
+                <span>{project.category}</span>
+              </div>
+              <div className="project-main">
+                <div>
+                  <div className="project-accent">{project.accent}</div>
+                  <h3>{project.name}</h3>
+                </div>
+                <ArrowUpRight className="project-icon" size={24} />
+              </div>
+              <p>{project.description}</p>
+            </motion.article>
           ))}
         </div>
       </section>
 
-      <section className="about section-shell" id="about">
-        <div className="section-label"><span>ABOUT</span><span>04 / 05</span></div>
-        <div className="about-layout">
-          <div className="about-portrait">
-            <img src="/avatar.jpg" alt="Drushyanth 3D avatar portrait" />
-            <span>DRUSHYA / PORTRAIT STUDY</span>
-          </div>
-          <div>
-            <p className="eyebrow">THE PERSON BEHIND THE PROJECTS</p>
-            <h2>NOT JUST A<br /><span>CREATOR.</span></h2>
-          </div>
+      <section className="about wrap" id="about">
+        <div className="section-head"><span>04</span><span>ABOUT</span></div>
+        <div className="about-grid">
+          <p className="about-big">Not just a creator.<br /><i>A builder.</i></p>
           <div className="about-copy">
-            <p>I’m Drushyanth — a multidisciplinary digital creator and builder working across design, content, branding, development and growth.</p>
-            <p>I like taking an idea from a rough thought to something people can see, feel, use and remember.</p>
-            <div className="about-signature">DRUSHYA / ಸೃಷ್ಟಿಕರ್ತ</div>
+            <p>I’m Drushyanth — a multidisciplinary digital creator and builder working between creativity and technology.</p>
+            <p>I enjoy taking something that exists only as an idea and giving it a visual identity, a system and a place in the real world.</p>
+            <div className="signature">DRUSHYA / ಸೃಷ್ಟಿಕರ್ತ</div>
           </div>
         </div>
       </section>
 
-      <section className="capabilities section-shell" id="capabilities">
-        <div className="section-label"><span>CAPABILITIES</span><span>05 / 05</span></div>
-        <div className="capability-head">
-          <h2>ONE MIND.<br /><span>MANY CRAFTS.</span></h2>
-          <p>Strategy when it matters. Craft when it counts. Technology when it creates leverage.</p>
-        </div>
-        <div className="capability-list">
-          {capabilities.map((capability, index) => (
-            <motion.div key={capability} className="capability" whileHover={{ x: 14 }}>
-              <span>0{index + 1}</span>
-              <strong>{capability}</strong>
-              <ArrowUpRight size={18} />
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      <section className="contact section-shell" id="contact">
-        <div className="contact-card">
-          <p className="eyebrow">HAVE AN IDEA?</p>
-          <h2>LET'S MAKE<br /><em>IT REAL.</em></h2>
-          <a className="contact-email" href="mailto:hello@drushyanth.com">hello@drushyanth.com <ArrowUpRight size={23} /></a>
-          <div className="socials">
-            <a href="https://instagram.com/" target="_blank" rel="noreferrer"><Instagram size={18} /> Instagram</a>
-            <a href="https://linkedin.com/" target="_blank" rel="noreferrer"><Linkedin size={18} /> LinkedIn</a>
+      <section className="capabilities wrap" id="capabilities">
+        <div className="section-head"><span>05</span><span>CAPABILITIES</span></div>
+        <div className="capability-grid">
+          <h2>Many crafts.<br /><i>One direction.</i></h2>
+          <div className="capability-list">
+            {capabilities.map((item, index) => (
+              <div className="capability" key={item}>
+                <span>0{index + 1}</span>
+                <strong>{item}</strong>
+                <ArrowUpRight size={17} />
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <footer className="footer section-shell">
-        <span>© {new Date().getFullYear()} DRUSHYA</span>
-        <span>BUILT WITH INTENT / ಸೃಷ್ಟಿ</span>
+      <section className="contact wrap" id="contact">
+        <div className="contact-inner">
+          <p className="kicker">HAVE AN IDEA?</p>
+          <h2>Let's build<br /><i>something good.</i></h2>
+          <a className="contact-link" href="mailto:hello@drushyanth.com">hello@drushyanth.com <ArrowUpRight size={20} /></a>
+        </div>
+      </section>
+
+      <footer className="footer wrap">
+        <span>© {new Date().getFullYear()} DRUSHYANTH</span>
+        <span>CREATE / ಸೃಷ್ಟಿ</span>
         <a href="#top">BACK TO TOP ↑</a>
       </footer>
     </main>
-  )
-}
-
-function Stat({ value, label }: { value: string; label: string }) {
-  return (
-    <div className="stat">
-      <strong>{value}</strong>
-      <span>{label}</span>
-    </div>
-  )
-}
-
-function ProjectCard({ project }: { project: typeof projects[number] }) {
-  return (
-    <motion.article className={`project project-${project.tone}`} whileHover={{ y: -7 }}>
-      <div className="project-visual">
-        <div className="project-no">{project.index}</div>
-        <div className="project-word">{project.tag}</div>
-        <div className="project-shape" />
-        <ExternalLink className="project-arrow" size={25} />
-      </div>
-      <div className="project-info">
-        <div>
-          <h3>{project.name}</h3>
-          <span>{project.type}</span>
-        </div>
-        <p>{project.description}</p>
-      </div>
-    </motion.article>
   )
 }
 
