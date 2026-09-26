@@ -48,10 +48,12 @@ button { color: inherit; font: inherit; }
 .hero-bottom p { max-width: 290px; color: #aaa; line-height: 1.5; font-size: .95rem; }
 .circle-link { width: 66px; height: 66px; border: 1px solid var(--line); border-radius: 50%; display: grid; place-items: center; transition: .3s ease; }
 .circle-link:hover { background: white; color: black; transform: rotate(45deg); }
-.hero-orb { position: absolute; width: min(48vw, 680px); aspect-ratio: 1; right: -7vw; top: 16vh; border-radius: 50%; background: radial-gradient(circle at 38% 30%, #323232 0, #151515 35%, #080808 70%); box-shadow: inset -30px -40px 100px rgba(0,0,0,.8), 0 0 100px rgba(215,25,32,.08); display: grid; place-items: center; }
-.orb-grid { position: absolute; inset: 7%; border: 1px solid rgba(255,255,255,.13); border-radius: 50%; background: repeating-radial-gradient(circle, transparent 0 25px, rgba(255,255,255,.05) 26px 27px); }
-.orb-core { width: 42%; aspect-ratio: 1; border-radius: 50%; background: #d71920; display: grid; place-items: center; font-weight: 900; font-size: clamp(2rem, 6vw, 5rem); letter-spacing: -.08em; box-shadow: 0 20px 90px rgba(215,25,32,.3); }
-.orb-label { position: absolute; bottom: 18%; font: 500 .6rem "DM Mono", monospace; letter-spacing: .18em; color: #aaa; }
+.hero-orb { position: absolute; width: min(46vw, 620px); aspect-ratio: 4 / 5; right: -3vw; top: 11vh; border-radius: 48% 48% 12% 12%; overflow: hidden; background: #111; box-shadow: -35px 45px 120px rgba(0,0,0,.65), 0 0 100px rgba(215,25,32,.09); display: grid; place-items: center; }
+.hero-orb::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,.08), transparent 32%, rgba(0,0,0,.58)); pointer-events: none; }
+.avatar-halo { position: absolute; width: 86%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(215,25,32,.32), transparent 68%); filter: blur(8px); }
+.hero-avatar { width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; position: relative; z-index: 1; filter: contrast(1.04) saturate(.9); transform: scale(1.02); }
+.avatar-caption { position: absolute; z-index: 3; left: 24px; bottom: 22px; font: 500 .6rem "DM Mono", monospace; letter-spacing: .12em; color: rgba(255,255,255,.72); }
+.orb-label { position: absolute; z-index: 3; top: 22px; right: 22px; font: 500 .6rem "DM Mono", monospace; letter-spacing: .18em; color: rgba(255,255,255,.72); }
 .hero-kan { position: absolute; right: 4vw; bottom: 8vh; display: flex; gap: 12px; font: 500 .55rem "DM Mono", monospace; writing-mode: vertical-rl; color: #666; }
 
 .numbers { padding-top: 150px; padding-bottom: 180px; }
@@ -85,7 +87,10 @@ button { color: inherit; font: inherit; }
 
 .about { padding-top: 100px; padding-bottom: 200px; background: var(--cream); color: #111; margin-top: 0; }
 .about .section-label { border-color: rgba(0,0,0,.15); color: #777; }
-.about-layout { display: grid; grid-template-columns: 1.1fr .9fr; gap: 9vw; margin-top: 95px; }
+.about-layout { display: grid; grid-template-columns: .72fr 1.1fr .9fr; gap: 6vw; margin-top: 95px; }
+.about-portrait { align-self: end; position: relative; overflow: hidden; aspect-ratio: 4 / 5; background: #161616; }
+.about-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; filter: grayscale(.2); }
+.about-portrait span { position: absolute; left: 16px; bottom: 14px; font: 500 .55rem "DM Mono", monospace; color: white; letter-spacing: .1em; }
 .about h2 { font-size: clamp(4rem, 9vw, 9rem); }
 .about h2 span { color: #111; -webkit-text-stroke: 1px #111; }
 .about-copy { align-self: end; }
@@ -119,7 +124,7 @@ button { color: inherit; font: inherit; }
   .hero { padding-top: 130px; align-items: flex-start; }
   .hero-copy { width: 100%; }
   .hero h1 { font-size: clamp(4.2rem, 20vw, 8rem); }
-  .hero-orb { width: 70vw; right: -22vw; top: 45vh; opacity: .55; }
+  .hero-orb { width: 70vw; right: -22vw; top: 45vh; opacity: .92; }
   .hero-kan { display: none; }
   .number-grid { grid-template-columns: 1fr 1fr; gap: 45px 0; }
   .stat { border-right: 0; }
