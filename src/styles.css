@@ -1,18 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap');
 
+/* Visual upgrade: dark interactive portfolio system */
 :root {
   font-family: Inter, system-ui, sans-serif;
-  color: #111111;
-  background: #f7f7f5;
+  color: #f7f8ff;
+  background: #070914;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-  --bg: #f7f7f5;
-  --surface: #ffffff;
-  --ink: #111111;
-  --muted: #70706c;
-  --line: #d9d9d4;
-  --soft: #eeeeea;
-  --accent: #e21b23;
+  --bg: #070914;
+  --surface: rgba(16,19,35,.78);
+  --ink: #f7f8ff;
+  --muted: #9298ac;
+  --line: rgba(255,255,255,.11);
+  --soft: rgba(255,255,255,.06);
+  --accent: #48e6ff;
   --mono: 'DM Mono', monospace;
 }
 
