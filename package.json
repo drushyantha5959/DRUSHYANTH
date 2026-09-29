@@ -12,7 +12,8 @@
     "framer-motion": "^12.23.12",
     "lucide-react": "^0.468.0",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "@designcodeio/threeui": "^1.2.0"
   },
   "devDependencies": {
     "@types/react": "^19.1.13",
