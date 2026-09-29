@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { ArrowDown, ArrowUpRight, CheckCircle2, ExternalLink, Github, Instagram, Linkedin, Menu, X } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { ThreeDPaper } from '@designcodeio/threeui'
+import '@designcodeio/threeui/style.css'
 
 const projects = [
   {
@@ -159,30 +161,20 @@ function App() {
             </div>
           </div>
 
-          <div className="hero-proof">
-            <div className="proof-card featured-proof">
+          <div className="hero-visual" aria-label="Interactive 3D paper scene">
+            <div className="shader-frame">
+              <ThreeDPaper variant="site-of-the-year" />
+            </div>
+            <div className="hero-glass-card">
               <span className="proof-label">01 / META</span>
-              <div className="proof-icon"><CheckCircle2 size={25} /></div>
+              <div className="proof-icon"><CheckCircle2 size={22} /></div>
               <h2>Meta Early<br />Access Member</h2>
               <p>Early access member with Meta-related credentials and verified presence.</p>
             </div>
-
-            <div className="proof-stack">
-              <div className="mini-proof">
-                <span>02</span>
-                <strong>Meta Verified</strong>
-                <small>VERIFICATION</small>
-              </div>
-              <div className="mini-proof">
-                <span>03</span>
-                <strong>Meta ID</strong>
-                <small>IDENTITY</small>
-              </div>
-              <div className="mini-proof">
-                <span>04</span>
-                <strong>15+ Brands</strong>
-                <small>COLLABORATIONS</small>
-              </div>
+            <div className="hero-glass-stack">
+              <div className="mini-proof"><span>02</span><strong>Meta Verified</strong><small>VERIFICATION</small></div>
+              <div className="mini-proof"><span>03</span><strong>Meta ID</strong><small>IDENTITY</small></div>
+              <div className="mini-proof"><span>04</span><strong>15+ Brands</strong><small>COLLABORATIONS</small></div>
             </div>
           </div>
         </div>
