@@ -165,6 +165,8 @@ function App() {
             <div className="shader-frame">
               <ThreeDPaper variant="site-of-the-year" />
             </div>
+            <div className="hero-orbit-label">INTERACTIVE 3D / SITE OF THE YEAR</div>
+          </div>
             <div className="hero-glass-card">
               <span className="proof-label">01 / META</span>
               <div className="proof-icon"><CheckCircle2 size={22} /></div>
