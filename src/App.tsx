@@ -167,17 +167,6 @@ function App() {
             </div>
             <div className="hero-orbit-label">INTERACTIVE 3D / SITE OF THE YEAR</div>
           </div>
-            <div className="hero-glass-card">
-              <span className="proof-label">01 / META</span>
-              <div className="proof-icon"><CheckCircle2 size={22} /></div>
-              <h2>Meta Early<br />Access Member</h2>
-              <p>Early access member with Meta-related credentials and verified presence.</p>
-            </div>
-            <div className="hero-glass-stack">
-              <div className="mini-proof"><span>02</span><strong>Meta Verified</strong><small>VERIFICATION</small></div>
-              <div className="mini-proof"><span>03</span><strong>Meta ID</strong><small>IDENTITY</small></div>
-              <div className="mini-proof"><span>04</span><strong>15+ Brands</strong><small>COLLABORATIONS</small></div>
-            </div>
           </div>
         </div>
 
